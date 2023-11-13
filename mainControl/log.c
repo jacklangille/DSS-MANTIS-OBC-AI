@@ -6,7 +6,7 @@
 static FILE *log_file = NULL; 
 
 void init_log() {
-    log_file = fopen("uart_communication.log", "a"); 
+    log_file = fopen("communication.log", "w"); 
     if (log_file == NULL) {
         perror("Failed to open log file");
         exit(EXIT_FAILURE);

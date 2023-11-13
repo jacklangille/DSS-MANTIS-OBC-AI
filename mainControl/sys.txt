@@ -1,7 +1,0 @@
-To do:
-1. Implement database/buffer logic
-2. Implement preprocessing logic
-3. Implement inference logic
-4. Implement output buffer logic
-5. Implement transmit logic 
-6. Potentially switch to C?
