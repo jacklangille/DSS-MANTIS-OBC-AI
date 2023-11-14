@@ -11,6 +11,7 @@ To use with 'socat' for simulating UART ports:
     - From another terminal run "echo "WAKE" > /dev/ttys004" where WAKE is the message to be sent.
 - Assign one of these virtual ports to UART_PORT in this program.
 - Run this program, which will then listen and log messages from the virtual UART port.
+- To quit, send "SHUT_DOWN" command to port.
 */
 
 
@@ -18,9 +19,11 @@ To use with 'socat' for simulating UART ports:
 #include "listen.h" // Header file for listening functions
 #include <stdio.h> // Standard input/output header file
 #include <unistd.h>  // Header file for various types and constants
+#include <string.h> // Header file for basic string ops
 
 #define UART_PORT "/dev/ttys003" // Port to be opened and listen with
 #define BUFFER_SIZE 256 // Size of buffer
+#define STOP_COMMAND "SHUT_DOWN" // Stop condition
 
 int main(void) {
 
@@ -38,7 +41,9 @@ int main(void) {
 
     while (1) {
         int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1); // Fetch number of bytes read
-        log_info("Awaiting command.");
+        
+        
+        
         if (read_bytes > 0) { // If number of bytes greater than 0, append a null terminator and print command.
             buffer[read_bytes] = '\0'; 
             // Log the received data
@@ -48,6 +53,12 @@ int main(void) {
 
             // Print the received data to the terminal
             printf("%s\n", log_message);
+            
+            // Check for stop command
+            if (strcmp(buffer, STOP_COMMAND)) {
+                log_info("Stop command received, aborting.");
+                break; 
+            }
         }
         sleep(1);
     }
