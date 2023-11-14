@@ -32,8 +32,7 @@ int open_uart(const char *portname) {
     /* Configure for Unix/Unix-like envs. Applies settings immediately to port.
     struct termios options: Create a struct for options.
     tcgetattr(uart_fd, &options): Get the current settings set by uart_fd and store in the termios structure.
-    tcgetattr(uart_fd, TCSANOW, &options):  Set settings of uart_fd. TCSANOW implements changes immediately.
-    */
+    tcgetattr(uart_fd, TCSANOW, &options):  Set settings of uart_fd. TCSANOW implements changes immediately. */
     struct termios options;
     tcgetattr(uart_fd, &options);
     tcsetattr(uart_fd, TCSANOW, &options);
@@ -51,7 +50,6 @@ int read_uart(int uart_fd, char *buffer, int buffer_size) {
     /* Reads incoming data in buffer. Buffer size set in main.c.
     uart_fd = file descriptor of port
     *buffer = pointer to character array containing read data
-    buffer_size = size of buffer
-    */
+    buffer_size = size of buffer */
     return read(uart_fd, buffer, buffer_size);
 }
