@@ -1,40 +1,63 @@
-#include "log.h"
-#include "listen.h"
-#include <stdio.h>
-#include <unistd.h>  
+/*
+This program sets up UART communication on a Unix-like OS, logs the process, 
+and reads incoming UART messages. It is designed to work with virtual UART ports 
+created using 'socat', allowing for UART communication simulation. 
+The program initializes logging, opens a specified UART port, continuously reads and logs 
+received messages, and cleans up by closing the UART port and the log file.
 
-#define UART_PORT "/dev/ttys003"  // Port to listen on
-#define BUFFER_SIZE 256
+To use with 'socat' for simulating UART ports:
+- Set up a pair of virtual serial ports using 'socat'.
+    - From a terminal run "socat -d -d pty,raw,echo=0 pty,raw,echo=0"
+    - From another terminal run "echo "WAKE" > /dev/ttys004" where WAKE is the message to be sent.
+- Assign one of these virtual ports to UART_PORT in this program.
+- Run this program, which will then listen and log messages from the virtual UART port.
+*/
+
+
+#include "log.h" // Header file for logging functions
+#include "listen.h" // Header file for listening functions
+#include <stdio.h> // Standard input/output header file
+#include <unistd.h>  // Header file for various types and constants
+
+#define UART_PORT "/dev/ttys003" // Port to be opened and listen with
+#define BUFFER_SIZE 256 // Size of buffer
 
 int main(void) {
-    init_log();
+
+    init_log(); // Initialize logging 
     log_info("Starting UART communication");
 
-    // Open UART port
-    int uart_fd = open_uart(UART_PORT);
+    int uart_fd = open_uart(UART_PORT); // Open port. Log error if this fails.
     if (uart_fd == -1) {
         log_error("Failed to open UART port");
         return 1;
     }
     log_info("UART port opened successfully");
 
-    char buffer[BUFFER_SIZE];
-    while (1) {
-        int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1); 
-        log_info("Awaiting command.");
-        if (read_bytes > 0) {
-            buffer[read_bytes] = '\0'; 
-            printf("Received command: %s\n", buffer);
-            log_info("Received command.");
+    char buffer[BUFFER_SIZE]; // Create a character array for incoming data.
 
+    while (1) {
+        int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1); // Fetch number of bytes read
+        log_info("Awaiting command.");
+        if (read_bytes > 0) { // If number of bytes greater than 0, append a null terminator and print command.
+            buffer[read_bytes] = '\0'; 
+            // Log the received data
+            char log_message[BUFFER_SIZE + 50]; // Extra space for the log message
+            sprintf(log_message, "Received command: %s", buffer); 
+            log_info(log_message);
+
+            // Print the received data to the terminal
+            printf("%s\n", log_message);
+        }
         sleep(1);
     }
-    }
-    
-    close_uart(uart_fd);
-    log_info("UART port closed");
 
-    close_log();
+    
+    close_uart(uart_fd); // Close port
+    log_info("UART port closed"); 
+ 
+    close_log(); // Close log
 
     return 0;
 }
+
