@@ -1,7 +1,7 @@
 #include "log.h"
 #include "listen.h"
 #include <stdio.h>
-#include <unistd.h>  // For sleep function
+#include <unistd.h>  
 
 #define UART_PORT "/dev/ttys003"  // Port to listen on
 #define BUFFER_SIZE 256
