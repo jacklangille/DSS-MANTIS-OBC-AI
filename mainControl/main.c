@@ -23,6 +23,7 @@ To use with 'socat' for simulating UART ports:
 
 #define UART_PORT "/dev/ttys003" // Port to be opened and listen with
 #define BUFFER_SIZE 256 // Size of buffer
+
 #define STOP_COMMAND "SHUT_DOWN" // Stop condition
 
 int main(void) {
@@ -41,8 +42,6 @@ int main(void) {
 
     while (1) {
         int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1); // Fetch number of bytes read
-        
-        
         
         if (read_bytes > 0) { // If number of bytes greater than 0, append a null terminator and print command.
             buffer[read_bytes] = '\0'; 
@@ -63,7 +62,6 @@ int main(void) {
         sleep(1);
     }
 
-    
     close_uart(uart_fd); // Close port
     log_info("UART port closed"); 
  

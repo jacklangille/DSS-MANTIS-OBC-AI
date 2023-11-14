@@ -7,7 +7,6 @@ Nov 14 2023:
     1. Open port 
     2. Close port
     3. Read incoming UART comm
-
 */
 #include "listen.h"
 #include <fcntl.h>   // File control definitions
