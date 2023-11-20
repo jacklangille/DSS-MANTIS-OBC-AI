@@ -21,7 +21,7 @@ To use with 'socat' for simulating UART ports:
 #include <unistd.h>  // Header file for various types and constants
 #include <string.h> // Header file for basic string ops
 
-#define UART_PORT "/dev/ttys003" // Port to be opened and listen with
+#define UART_PORT "/dev/ttys001" // Port to be opened and listen with
 #define BUFFER_SIZE 256 // Size of buffer
 
 #define STOP_COMMAND "SHUT_DOWN" // Stop condition
@@ -36,6 +36,7 @@ int main(void) {
         log_error("Failed to open UART port");
         return 1;
     }
+    
     log_info("UART port opened successfully");
 
     char buffer[BUFFER_SIZE]; // Create a character array for incoming data.
@@ -53,11 +54,7 @@ int main(void) {
             // Print the received data to the terminal
             printf("%s\n", log_message);
             
-            // Check for stop command
-            if (strcmp(buffer, STOP_COMMAND)) {
-                log_info("Stop command received, aborting.");
-                break; 
-            }
+            
         }
         sleep(1);
     }
