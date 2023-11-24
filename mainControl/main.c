@@ -25,9 +25,13 @@ To use with 'socat' for simulating UART ports:
 #define BUFFER_SIZE 256 						// Size of buffer
 
 /* Command list */
-#define WAKE 1
-#define IMAGE_RX_COMMAND "IMAGE_RX" 
-#define SLEEP 3
+#define WAKE 								// Wake Jetson and initialize systems. Wait for further command
+#define SLEEP 								// Routine shutdown. Shut off systems and enter low power mode
+#define IMAGE_RX 							// Prepare to receive image from payload 
+#define RESULTS_TX 							// Transmit cached results
+#define INF_1_START 							// Begin performing HAB inference 
+#define INF_2_START 							// Begin performign tree infernece
+#define EMERG_STOP 							// Emergency shutdown. Save system state and turn off asap
 
 /* Main entry point */
 int main(void) {
@@ -35,7 +39,7 @@ int main(void) {
     init_log(); 							// Initialize logging 
     log_info("Starting UART communication");
 
-    int uart_fd = open_uart(UART_PORT); 				// Open port. Log error if this fails
+    int uart_fd = open_uart(UART_PORT); 				// Open port and log error on fail
     if (uart_fd == -1) {
         log_error("Failed to open UART port");
         return 1;
