@@ -1,8 +1,2 @@
-[Fri Nov 24 15:54:10 2023] INFO: Starting UART communication
-[Fri Nov 24 15:54:10 2023] INFO: UART port opened successfully
-[Fri Nov 24 15:54:21 2023] INFO: Received command: WAKE
-
-[Fri Nov 24 15:54:48 2023] INFO: Received command: IMAGE_RX
-
-[Fri Nov 24 15:55:25 2023] INFO: Received command: SHUT_DOWN
-
+[Fri Nov 24 19:18:04 2023] INFO: Starting UART communication
+[Fri Nov 24 19:18:04 2023] ERROR: Failed to open UART port

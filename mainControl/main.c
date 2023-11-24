@@ -14,41 +14,44 @@ To use with 'socat' for simulating UART ports:
 - To quit, send "SHUT_DOWN" command to port.
 */
 
-#include "log.h" // Header file for logging functions
-#include "listen.h" // Header file for listening functions
-#include <stdio.h> // Standard input/output header file
-#include <unistd.h>  // Header file for various types and constants
-#include <string.h> // Header file for basic string ops
+/* Dependencies */
+#include "log.h" 							// Header file for logging functions
+#include "listen.h" 							// Header file for listening functions
+#include <stdio.h> 							// Standard input/output header file
+#include <unistd.h>  							// Header file for various types and constants
+#include <string.h> 							// Header file for basic string ops
 
-#define UART_PORT "/dev/ttys003" // Port to be opened and listen with
-#define BUFFER_SIZE 256 // Size of buffer
+#define UART_PORT "/dev/ttys003" 					// Port to be opened and listen with
+#define BUFFER_SIZE 256 						// Size of buffer
 
 /* Command list */
 #define WAKE 1
 #define IMAGE_RX_COMMAND "IMAGE_RX" 
 #define SLEEP 3
 
-
+/* Main entry point */
 int main(void) {
 
-    init_log(); // Initialize logging 
+    init_log(); 							// Initialize logging 
     log_info("Starting UART communication");
 
-    int uart_fd = open_uart(UART_PORT); // Open port. Log error if this fails.
+    int uart_fd = open_uart(UART_PORT); 				// Open port. Log error if this fails
     if (uart_fd == -1) {
         log_error("Failed to open UART port");
         return 1;
     }
+
     log_info("UART port opened successfully");
 
-    char buffer[BUFFER_SIZE]; // Create a character array for incoming data.
-
+    char buffer[BUFFER_SIZE];						// Create a character array for incoming data
+    
+    /* Main listen loop */	
     while (1) {
-        int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1); // Fetch number of bytes read
-        if (read_bytes > 0) { // If number of bytes greater than 0, append a null terminator and print command.
+        int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1);	// Fetch number of bytes read
+   
+	if (read_bytes > 0) { 						// Append a null terminator and print command if bytes > 0
             buffer[read_bytes] = '\0'; 
-            // Log the received data
-            char log_message[BUFFER_SIZE + 50]; // Extra space for the log message
+            char log_message[BUFFER_SIZE + 50]; 	
             sprintf(log_message, "Received command: %s", buffer); 
             log_info(log_message);           
         }
