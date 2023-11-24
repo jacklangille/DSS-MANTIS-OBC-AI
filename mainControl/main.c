@@ -14,17 +14,20 @@ To use with 'socat' for simulating UART ports:
 - To quit, send "SHUT_DOWN" command to port.
 */
 
-
 #include "log.h" // Header file for logging functions
 #include "listen.h" // Header file for listening functions
 #include <stdio.h> // Standard input/output header file
 #include <unistd.h>  // Header file for various types and constants
 #include <string.h> // Header file for basic string ops
 
-#define UART_PORT "/dev/ttys001" // Port to be opened and listen with
+#define UART_PORT "/dev/ttys003" // Port to be opened and listen with
 #define BUFFER_SIZE 256 // Size of buffer
 
-#define STOP_COMMAND "SHUT_DOWN" // Stop condition
+/* Command list */
+#define WAKE 1
+#define IMAGE_RX_COMMAND "IMAGE_RX" 
+#define SLEEP 3
+
 
 int main(void) {
 
@@ -36,34 +39,24 @@ int main(void) {
         log_error("Failed to open UART port");
         return 1;
     }
-    
     log_info("UART port opened successfully");
 
     char buffer[BUFFER_SIZE]; // Create a character array for incoming data.
 
     while (1) {
         int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1); // Fetch number of bytes read
-        
         if (read_bytes > 0) { // If number of bytes greater than 0, append a null terminator and print command.
             buffer[read_bytes] = '\0'; 
             // Log the received data
             char log_message[BUFFER_SIZE + 50]; // Extra space for the log message
             sprintf(log_message, "Received command: %s", buffer); 
-            log_info(log_message);
-
-            // Print the received data to the terminal
-            printf("%s\n", log_message);
-            
-            
+            log_info(log_message);           
         }
-        sleep(1);
     }
 
-    close_uart(uart_fd); // Close port
+    close_uart(uart_fd); 
     log_info("UART port closed"); 
- 
-    close_log(); // Close log
+    close_log(); 
 
     return 0;
 }
-
