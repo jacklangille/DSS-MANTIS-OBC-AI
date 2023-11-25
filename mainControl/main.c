@@ -15,52 +15,57 @@ To use with 'socat' for simulating UART ports:
 */
 
 /* Dependencies */
-#include "log.h" 							// Header file for logging functions
+#include "log.h" 							    // Header file for logging functions
 #include "listen.h" 							// Header file for listening functions
-#include <stdio.h> 							// Standard input/output header file
+#include "parse.h"							    // Header file for parsing commands
+
+#include <stdio.h> 							    // Standard input/output header file
 #include <unistd.h>  							// Header file for various types and constants
 #include <string.h> 							// Header file for basic string ops
 
-#define UART_PORT "/dev/ttys003" 					// Port to be opened and listen with
-#define BUFFER_SIZE 256 						// Size of buffer
+#define UART_PORT "/dev/ttys003" 				// Port to opened and listen on
+#define BUFFER_SIZE 1024 						// Size of buffer
 
 /* Command list */
-#define WAKE 								// Wake Jetson and initialize systems. Wait for further command
-#define SLEEP 								// Routine shutdown. Shut off systems and enter low power mode
-#define IMAGE_RX 							// Prepare to receive image from payload 
-#define RESULTS_TX 							// Transmit cached results
-#define INF_1_START 							// Begin performing HAB inference 
-#define INF_2_START 							// Begin performign tree infernece
-#define EMERG_STOP 							// Emergency shutdown. Save system state and turn off asap
+#define WAKE "w" 							    // Wake Jetson and initialize systems. Wait for further command
+#define SLEEP "s"							    // Routine shutdown. Shut off systems and enter low power mode
+#define IMAGE_RX "irx"
+#define RESULTS_TX "rtx"						// Transmit cached results
+#define INF_1_START "inf1"						// Begin performing HAB inference 
+#define INF_2_START "inf2"						// Begin performign tree infernece
+#define EMERG_STOP "estp"						// Emergency shutdown. Save system state and turn off asap
 
 /* Main entry point */
 int main(void) {
 
-    init_log(); 							// Initialize logging 
+    init_log(); 							    // Initialize logging 
     log_info("Starting UART communication");
-
-    int uart_fd = open_uart(UART_PORT); 				// Open port and log error on fail
+        
+    int uart_fd = open_uart(UART_PORT); 		// Open port and log error on fail
+									
     if (uart_fd == -1) {
         log_error("Failed to open UART port");
-        return 1;
+        
+	return 1;
     }
 
     log_info("UART port opened successfully");
 
-    char buffer[BUFFER_SIZE];						// Create a character array for incoming data
+    char buffer[BUFFER_SIZE];					// Create a character array for incoming data
     
-    /* Main listen loop */	
+    /* Main listen loop */
     while (1) {
-        int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1);	// Fetch number of bytes read
+        int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1);
    
-	if (read_bytes > 0) { 						// Append a null terminator and print command if bytes > 0
+	if (read_bytes > 0) { 						// Append a null terminator and print command if msg received 
             buffer[read_bytes] = '\0'; 
             char log_message[BUFFER_SIZE + 50]; 	
             sprintf(log_message, "Received command: %s", buffer); 
             log_info(log_message);           
         }
     }
-
+	
+    parse_command(buffer);
     close_uart(uart_fd); 
     log_info("UART port closed"); 
     close_log(); 
