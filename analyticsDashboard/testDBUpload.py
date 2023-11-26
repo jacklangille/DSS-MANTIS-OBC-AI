@@ -19,10 +19,10 @@ def addNewPoint(systemName:str, keyName: str, value: any):
 	write_api.write(bucket=bucket, org=org, record=point)
 
 def getPoint(systemName:str, keyName: str):
-	query = 'from(bucket:"testing")\
+	query = f'from(bucket:"testing")\
 	|> range(start: -10m)\
-	|> filter(fn:(r) => r._measurement == "' + systemName + '")\
-	|> filter(fn:(r) => r._field == "' + keyName + '")'
+	|> filter(fn:(r) => r._measurement == "{systemName}")\
+	|> filter(fn:(r) => r._field == "{keyName}")'
 
 	result = query_api.query(org=org, query=query)
 
