@@ -11,27 +11,29 @@ client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
 
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
-
 query_api = client.query_api()
 
-def addNewPoint(systemName:str, keyName: str, value: any):
-	point = influxdb_client.Point(systemName).field(keyName, value)
-	write_api.write(bucket=bucket, org=org, record=point)
 
-def getPoint(systemName:str, keyName: str):
-	query = f'from(bucket:"testing")\
+def addNewPoint(systemName: str, keyName: str, value: any):
+    point = influxdb_client.Point(systemName).field(keyName, value)
+    write_api.write(bucket=bucket, org=org, record=point)
+
+
+def getPoint(systemName: str, keyName: str):
+    query = f'from(bucket:"testing")\
 	|> range(start: -10m)\
 	|> filter(fn:(r) => r._measurement == "{systemName}")\
 	|> filter(fn:(r) => r._field == "{keyName}")'
 
-	result = query_api.query(org=org, query=query)
+    result = query_api.query(org=org, query=query)
 
-	results = []
-	for table in result:
-		for record in table.records:
-			results.append((record.get_field(), record.get_value()))
+    results = []
+    for table in result:
+        for record in table.records:
+            results.append((record.get_field(), record.get_value()))
 
-	return results
+    return results
+
 
 ############################
 ## ADD NEW DATA EXAMPLES ##
