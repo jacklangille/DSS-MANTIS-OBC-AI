@@ -32,7 +32,7 @@ To use with 'socat' for simulating UART ports:
 #define IMAGE_RX "irx"
 #define RESULTS_TX "rtx"						// Transmit cached results
 #define INF_1_START "inf1"						// Begin performing HAB inference 
-#define INF_2_START "inf2"						// Begin performign tree infernece
+#define INF_2_START "inf2"						// Begin performing tree infernece
 #define EMERG_STOP "estp"						// Emergency shutdown. Save system state and turn off asap
 
 /* Main entry point */
@@ -54,7 +54,7 @@ int main(void) {
     char buffer[BUFFER_SIZE];					// Create a character array for incoming data
     
     /* Main listen loop */
-    while (1) {
+    while(1) {
         int read_bytes = read_uart(uart_fd, buffer, BUFFER_SIZE - 1);
    
 	if (read_bytes > 0) { 						// Append a null terminator and print command if msg received 
