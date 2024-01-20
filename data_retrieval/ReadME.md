@@ -7,10 +7,7 @@
     Before running the script, please follow the instructions in the first 20 lines of the script.
 
     Going forward, it may be beneficial to transition to using Google Earth Engine's API instead of Sentinel-2's for accessing iamgery. 
-    
-# Coordinates of batch files: 
-trees_batch1_Feb2020-Dec2021.txt is used for images with this coordinates: 
-{"type":"Polygon","coordinates":[[[-65.106524,44.525456],[-65.085068,44.525456],[-65.085068,44.510646],[-65.106524,44.510646],[-65.106524,44.525456]]]}
 
-(-65.106524, 44.525456, -65.085068, 44.510646)
+# Coordinates of batch files: 
+trees_batch1_Feb2020-Dec2021.txt is used for images with this coordinates: (-65.106524, 44.525456, -65.085068, 44.510646) -- this specifies the top left, and bottom right corners of a bounding box. 
 
