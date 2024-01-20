@@ -1,19 +1,13 @@
-# European space agency software they put out for viewing any sort of imagery:
-https://step.esa.int/main/download/snap-download/
+# Data Retrivel: 
 
-# Sentinel-2 info. and API resources: 
+    For imagery retrieval,  download_imagery.py sends requests to the Sentinel-2 API to download imagery at certain coordinates at a certain data. 
 
-Sentinel-2 Band information is taken from this website: 
-https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/resolutions/spectral
+    I Specified dates to retrieve data in the .txt files, and manually entered coordinates in the python script (This could be improved by writing the coordinates at the top of each .txt file, and altering the python script to automatically extract this)
 
-Sentinel-2 imagery can be manually (and freely) downloaded from: 
-https://apps.sentinel-hub.com/eo-browser/ 
+    Before running the script, please follow the instructions in the first 20 lines of the script.
 
-SentinelHub API documentation: 
-https://sentinelhub-py.readthedocs.io/en/latest/examples/data_search.html
-https://sentinelhub-py.readthedocs.io/en/latest/examples/process_request.html#Example-8-:-Multiple-timestamps-data
-
-
+    Going forward, it may be beneficial to transition to using Google Earth Engine's API instead of Sentinel-2's for accessing iamgery. 
+    
 # Coordinates of batch files: 
 trees_batch1_Feb2020-Dec2021.txt is used for images with this coordinates: 
 {"type":"Polygon","coordinates":[[[-65.106524,44.525456],[-65.085068,44.525456],[-65.085068,44.510646],[-65.106524,44.510646],[-65.106524,44.525456]]]}
