@@ -30,9 +30,9 @@ def loadDataSet(folder_path) -> []:
     tiff_files = [file for file in files if file.lower().endswith('.tiff') or file.lower().endswith('.tif')]
 
     # Construct the full paths to the TIFF files
-    raster_images = [rasterio.open(os.path.join(folder_path, tiff_file) for tiff_file in tiff_files)]
+    # raster_images = [rasterio.open(os.path.join(folder_path, tiff_file) for tiff_file in tiff_files)]
 
-    return raster_images
+    return tiff_files
 
 
 
