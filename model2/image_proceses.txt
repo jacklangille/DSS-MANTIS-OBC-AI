@@ -1,0 +1,9 @@
+TEXT FILE CONTAINING PSEUDOCODE FOR PROCESSING .TIFF SATELLITE IMAGERY
+CODE WRITTEN FOR CUBESAT MANTIS PROGRAM (DSS)
+AUTHOR: CHAZ DAVIES
+
+//The .tiff file will contain a 4-band (RGB + NIR) satellite image wih attached metadata including coordinates and timestamp
+
+//function to import the image
+
+
