@@ -21,3 +21,11 @@ data_minmax = min_max_scaler.fit_transform(data.reshape(-1, 1)).reshape(data.sha
 print(f"Raster Shape: {data.shape}")
 print(f"Raster Metadata: {metadata}")
 
+
+# z-score normalization
+zscore_scaler = StandardScaler()
+data_zscore = zscore_scaler.fit_transform(data.reshape(-1, 1)).reshape(data.shape)
+
+
+print(f"Raster Shape: {data.shape}")
+print(f"Raster Metadata: {metadata}")

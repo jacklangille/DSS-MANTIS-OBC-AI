@@ -1,5 +1,23 @@
+AFTER MIN MAX SCALING-
+
+
 C:\DSS\DSS-MANTIS-OBC-AI\preprocessing\plantations\venv\lib\site-packages\rasterio\__init__.py:317: NotGeoreferencedWarning: Dataset has no geotransform, gcps, or rpcs. The identity matrix will be returned.
   dataset = DatasetReader(path, driver=driver, sharing=sharing, **kwargs)
+Raster Shape: (160, 175)
+Raster Metadata: {'driver': 'GTiff', 'dtype': 'uint8', 'nodata': None, 'width': 175, 'height': 160, 'count': 4, 'crs': None, 'transform': Affine(1.0, 0.0, 0.0,
+       0.0, 1.0, 0.0)}
+Raster Shape: (160, 175)
+Raster Metadata: {'driver': 'GTiff', 'dtype': 'uint8', 'nodata': None, 'width': 175, 'height': 160, 'count': 4, 'crs': None, 'transform': Affine(1.0, 0.0, 0.0,
+       0.0, 1.0, 0.0)}
+
+
+AFTER Z SCORE NORMALIZATION-
+
+C:\DSS\DSS-MANTIS-OBC-AI\preprocessing\plantations\venv\lib\site-packages\rasterio\__init__.py:317: NotGeoreferencedWarning: Dataset has no geotransform, gcps, or rpcs. The identity matrix will be returned.
+  dataset = DatasetReader(path, driver=driver, sharing=sharing, **kwargs)
+Raster Shape: (160, 175)
+Raster Metadata: {'driver': 'GTiff', 'dtype': 'uint8', 'nodata': None, 'width': 175, 'height': 160, 'count': 4, 'crs': None, 'transform': Affine(1.0, 0.0, 0.0,
+       0.0, 1.0, 0.0)}
 Raster Shape: (160, 175)
 Raster Metadata: {'driver': 'GTiff', 'dtype': 'uint8', 'nodata': None, 'width': 175, 'height': 160, 'count': 4, 'crs': None, 'transform': Affine(1.0, 0.0, 0.0,
        0.0, 1.0, 0.0)}
