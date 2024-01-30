@@ -93,15 +93,15 @@
     },
     {
         "filename": "2020-09-08.tiff",
-        "annotations": "senescence-begins"
+        "annotations": "start-of-senescence"
     },
     {
         "filename": "2020-09-15.tiff",
-        "annotations": "senescence-begins"
+        "annotations": "start-of-senescence"
     },
     {
         "filename": "2020-09-20.tiff",
-        "annotations": "senescence-begins"
+        "annotations": "start-of-senescence"
     },
     {
         "filename": "2020-09-25.tiff",
@@ -225,11 +225,11 @@
     },
     {
         "filename": "2021-09-20.tiff",
-        "annotations": "senescence-begins"
+        "annotations": "start-of-senescence"
     },
     {
         "filename": "2021-09-30.tiff",
-        "annotations": "senescence-begins"
+        "annotations": "start-of-senescence"
     },
     {
         "filename": "2021-10-03.tiff",
