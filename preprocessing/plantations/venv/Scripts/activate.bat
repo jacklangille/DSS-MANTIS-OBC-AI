@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\DSS\DSS FOLDER 1 11TH NOV\DSS-MANTIS-OBC-AI\venv
+set VIRTUAL_ENV=C:\DSS\DSS FOLDER 1 11TH NOV\DSS-MANTIS-OBC-AI\preprocessing\plantations\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
