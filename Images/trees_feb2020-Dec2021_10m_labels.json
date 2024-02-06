@@ -1,0 +1,266 @@
+[
+    {
+        "filename": "2020-02-21.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-02-23.tiff",
+        "annotations":"evergreen-coverage"
+    },
+    {
+        "filename": "2020-02-26.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-03-09.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-04-06.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-04-21.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-04-23.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-05-06.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-05-08.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-05-11.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-05-13.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-05-21.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-05-23.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-06-15.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-06-17.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-06-20.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-07-20.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-07-25.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-08-01.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-08-06.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-08-26.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-08-31.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-09-05.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2020-09-08.tiff",
+        "annotations": "start-of-senescence"
+    },
+    {
+        "filename": "2020-09-15.tiff",
+        "annotations": "start-of-senescence"
+    },
+    {
+        "filename": "2020-09-20.tiff",
+        "annotations": "start-of-senescence"
+    },
+    {
+        "filename": "2020-09-25.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2020-10-10.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2020-10-15.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2020-10-18.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2020-11-04.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-11-22.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-12-24.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2020-12-27.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-01-01.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-01-11.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-02-10.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-02-15.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-03-04.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-03-07.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-03-17.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-03-22.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-04-08.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-04-11.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-04-28.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-05-13.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-05-21.tiff",
+        "annotations": "light-canopy"
+    },
+    {
+        "filename": "2021-06-02.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-06-12.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-06-17.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-06-20.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-06-30.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-08-01.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-08-16.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-08-26.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-09-13.tiff",
+        "annotations": "dense-canopy"
+    },
+    {
+        "filename": "2021-09-20.tiff",
+        "annotations": "start-of-senescence"
+    },
+    {
+        "filename": "2021-09-30.tiff",
+        "annotations": "start-of-senescence"
+    },
+    {
+        "filename": "2021-10-03.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2021-10-08.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2021-10-13.tiff",
+        "annotations": "senescence"
+    },
+    {
+        "filename": "2021-11-07.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-11-09.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-12-07.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-12-17.tiff",
+        "annotations": "evergreen-coverage"
+    },
+    {
+        "filename": "2021-12-24.tiff",
+        "annotations": "evergreen-coverage"
+    }
+]
