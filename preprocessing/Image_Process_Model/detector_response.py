@@ -6,34 +6,40 @@ def radiometricCorrection(images):
     corrected_images = []
 
     for image in images:
-       
-        # Interpolate missing scan line
-        interpolated_image = interpolateMissingScanLine(image)
+        destriped_image = destripeImage(image)
 
         # Normalization to each band
-        normalized_image = (interpolated_image - np.min(interpolated_image)) / (np.max(interpolated_image) - np.min(interpolated_image))
+        normalized_image = (destriped_image - np.min(destriped_image)) / (np.max(destriped_image) - np.min(destriped_image))
 
         corrected_images.append(normalized_image)
 
     return corrected_images
 
-def interpolateMissingScanLine(image):
-    # Interpolate missing scan line (simple linear interpolation)
+def destripeImage(image):
+    # Interpolate missing scan line and destripe 
     for y in range(1, image.shape[0] - 1):
         missing_scan_line_indices = np.isnan(image[y, :])
         if np.any(missing_scan_line_indices):
             for x in range(image.shape[1]):
                 if missing_scan_line_indices[x]:
-                    # Linear interpolation for missing scan line
-                    image[y, x] = (image[y - 1, x] + image[y + 1, x]) / 2
+                  
+                    image[y, x] = destripingFormula(image, y, x)
 
     return image
+
+# De-striping formula
+def destripingFormula(image, y, x):
+    od = 255
+    oi = 255
+    md = np.mean(image)
+    mi = np.mean(image)
+
+    return (od / oi) * image[y - 1, x] + md - (od / oi) * mi
 
 # Example Usage:
 radiometrically_corrected_images = radiometricCorrection(image_tensors)
 
 # Section 4: Displaying Radiometrically Corrected Images (Optional)
-# Plot the first radiometrically corrected image
-plt.imshow(radiometrically_corrected_images[0])
-plt.title('First Radiometrically Corrected Image')
-plt.show()
+# plt.imshow(radiometrically_corrected_images[0])
+# plt.title('First Radiometrically Corrected Image')
+# plt.show()
