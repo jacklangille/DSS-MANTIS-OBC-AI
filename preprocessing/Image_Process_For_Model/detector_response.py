@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from load_and_convert import image_tensors
+from sunAngle_topographic import sunAngleCorrection
 import cv2
 
 def radiometricCorrection(images):
@@ -12,9 +13,10 @@ def radiometricCorrection(images):
         interpolated_image = interpolateMissingScanLine(destriped_image)
         after_vignetting_removal=correctVignetting(interpolated_image)
         denoised_image = removeRandomNoise(after_vignetting_removal)
-
+        sun_angle_corrected_image = sunAngleCorrection(denoised_image, 30)  # Don't yet know how to get solar elevation angle
+        
         # Normalization to each band
-        normalized_image = (denoised_image - np.min(denoised_image)) / (np.max(denoised_image) - np.min(denoised_image))
+        normalized_image = (sun_angle_corrected_image - np.min(sun_angle_corrected_image)) / (np.max(sun_angle_corrected_image) - np.min(sun_angle_corrected_image))
         corrected_images.append(normalized_image)
 
     return corrected_images
@@ -69,3 +71,5 @@ radiometrically_corrected_images = radiometricCorrection(image_tensors)
 # plt.imshow(radiometrically_corrected_images[0])
 # plt.title('First Radiometrically Corrected Image')
 # plt.show()
+
+plt.close('all')
