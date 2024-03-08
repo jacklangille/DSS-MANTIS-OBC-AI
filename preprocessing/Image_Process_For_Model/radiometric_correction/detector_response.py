@@ -56,8 +56,13 @@ def destripingFormula(image, y, x):
     return (od / oi) * image[y - 1, x] + md - (od / oi) * mi
 
 def correctVignetting(image):
+    # Convert image to grayscale
+    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # Apply CLAHE
     clahe = cv2.createCLAHE()
-    corrected_image = clahe.apply(image)
+    corrected_image = clahe.apply(gray_image)
+
     return corrected_image
 
 # Replacing each pixel value with the median value of its neighboring pixels within a specified kernel size
