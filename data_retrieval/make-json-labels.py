@@ -1,7 +1,7 @@
 """
-    This code creates a blank json file (without labels)
-    to be populated with labels
-
+    This code creates a blank json file with the image file name included for each image. 
+    The json data will then need to be populated with image labels. 
+    
 
 """
 
