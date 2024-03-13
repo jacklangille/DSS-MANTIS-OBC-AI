@@ -38,6 +38,6 @@ def get_bounding_coordinates(latitude, longitude, image_side_length):
     _, lat_min, _ = WGS84_Geod.fwd(longitude, latitude, 180, distanceToEdge)
     long_min, _, _ = WGS84_Geod.fwd(longitude, latitude, 270, distanceToEdge)
 
-    bounding_coordinates = (long_min, lat_min, long_max, lat_max)
+    bounding_coordinates = [long_min, lat_min, long_max, lat_max]
 
     return bounding_coordinates
