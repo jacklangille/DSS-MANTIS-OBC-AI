@@ -1,3 +1,0 @@
-/home/jack/Desktop/DSS-MANTIS-OBC-AI/working_prototype/build/CMakeFiles/main.dir
-/home/jack/Desktop/DSS-MANTIS-OBC-AI/working_prototype/build/CMakeFiles/edit_cache.dir
-/home/jack/Desktop/DSS-MANTIS-OBC-AI/working_prototype/build/CMakeFiles/rebuild_cache.dir
