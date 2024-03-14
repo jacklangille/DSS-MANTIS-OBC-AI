@@ -7,7 +7,12 @@ config = SHConfig() # API keys are set as environment variables in ~/.zshrc
 # coords = [min_lon, min_lat, max_lon, max_lat]
 # coords define SW corner and NE corner of bounding box
 
-COORDS = [-65.106524, 44.525456, -65.085068, 44.510646]
+nw = (-68.58604112771494, 43.425172798679824) 
+ne = (-64.74841888575303, 43.425172798679824)
+sw = (-68.58604112771494, 38.63052616537985)
+se = (-64.74841888575303,38.63052616537985)
+
+COORDS = [sw[0], sw[1], ne[0], ne[1]]
 DATE = "2021-06-17"
 RES = 30 # Resolution in meters
 OUTPUT_DIR = "../dataset_gen/results/"
