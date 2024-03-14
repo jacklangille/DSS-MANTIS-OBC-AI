@@ -9,7 +9,7 @@ import folium
 # TODO: Make copy of code that reflects MANTIS payload specifications (swath width, resolution)
 # TODO: Add read me
 
-"""---------------------------------------------- CONSTS ----------------------------------------------"""
+"""----------------------------------------------   CONSTS ----------------------------------------------"""
 # Hardcoded coordinates (lon, lat) 
 center_pt = (-66.72838702399886, 41.1416760978243)
 nw = (-68.58604112771494, 43.425172798679824) 
