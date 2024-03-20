@@ -1,0 +1,6 @@
+{
+  "powerDraw": 10,
+	"databaseInput": 10,
+	"databaseOutput": 20,
+	"thermalTemp": 15
+}

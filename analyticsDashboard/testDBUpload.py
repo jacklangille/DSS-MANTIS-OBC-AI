@@ -1,6 +1,7 @@
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
 import random
+import json
 
 bucket = "testing"
 org = "3e8389e311b2b4b3"
@@ -39,68 +40,90 @@ def getPoint(systemName: str, keyName: str):
 ## ADD NEW DATA EXAMPLES ##
 ############################
 
-## Power Draw
-addNewPoint("powerDraw", "value", random.randint(60, 80))
+# ## Power Draw
+# addNewPoint("powerDraw", "value", random.randint(60, 80))
 
-## Inference status (check the progress and success rate of image processing tasks)
-addNewPoint("inferenceStatus", "progress", random.randint(40, 90))
-addNewPoint("inferenceStatus", "successRate", random.randint(60, 80))
+# ## Inference status (check the progress and success rate of image processing tasks)
+# addNewPoint("inferenceStatus", "progress", random.randint(40, 90))
+# addNewPoint("inferenceStatus", "successRate", random.randint(60, 80))
 
-## Database capacity. We will have two databases (one is a buffer for input and one is a buffer for output)
-addNewPoint("databaseCapacity", "inputBuffer", random.randint(0, 100))
-addNewPoint("databaseCapacity", "outputBuffer", random.randint(0, 100))
+# ## Database capacity. We will have two databases (one is a buffer for input and one is a buffer for output)
+# addNewPoint("databaseCapacity", "inputBuffer", random.randint(0, 100))
+# addNewPoint("databaseCapacity", "outputBuffer", random.randint(0, 100))
 
-## Thermal status
-addNewPoint("thermalStatus", "temperature", random.randint(20, 60))
+# ## Thermal status
+# addNewPoint("thermalStatus", "temperature", random.randint(20, 60))
 
-## CPU/GPU usage
-addNewPoint("cpuUsage", "cpu", random.randint(20, 100))
-addNewPoint("gpuUsage", "gpu", random.randint(20, 100))
+# ## CPU/GPU usage
+# addNewPoint("cpuUsage", "cpu", random.randint(20, 100))
+# addNewPoint("gpuUsage", "gpu", random.randint(20, 100))
 
-## Memory usage
-addNewPoint("memoryUsage", "memory", random.randint(10, 100))
+# ## Memory usage
+# addNewPoint("memoryUsage", "memory", random.randint(10, 100))
 
-## Network status - report status of comm. link
-addNewPoint("networkStatus", "status", "OK")
-addNewPoint("networkStatus", "status", "SOME_ERROR")
+# ## Network status - report status of comm. link
+# addNewPoint("networkStatus", "status", "OK")
+# addNewPoint("networkStatus", "status", "SOME_ERROR")
 
-## Error log/alerts
-addNewPoint("errorLog", "error", "SOME_ERROR")
+# ## Error log/alerts
+# addNewPoint("errorLog", "error", "SOME_ERROR")
 
-## Task queue/workflow status
-addNewPoint("taskQueue", "task_name", "task_value")
-addNewPoint("taskQueue", "some_other_task_name", "task_value")
+# ## Task queue/workflow status
+# addNewPoint("taskQueue", "task_name", "task_value")
+# addNewPoint("taskQueue", "some_other_task_name", "task_value")
 
-############################
-## QUERY DATA EXAMPLES ##
-############################
+# ############################
+# ## QUERY DATA EXAMPLES ##
+# ############################
 
-## Power Draw
-print(getPoint("powerDraw", "value"))
+# ## Power Draw
+# print(getPoint("powerDraw", "value"))
 
-## Inference status (check the progress and success rate of image processing tasks)
-print(getPoint("inferenceStatus", "progress"))
+# ## Inference status (check the progress and success rate of image processing tasks)
+# print(getPoint("inferenceStatus", "progress"))
 
-## Database capacity. We will have two databases (one is a buffer for input and one is a buffer for output)
-print(getPoint("databaseCapacity", "inputBuffer"))
-print(getPoint("databaseCapacity", "outputBuffer"))
+# ## Database capacity. We will have two databases (one is a buffer for input and one is a buffer for output)
+# print(getPoint("databaseCapacity", "inputBuffer"))
+# print(getPoint("databaseCapacity", "outputBuffer"))
 
-## Thermal status
-print(getPoint("thermalStatus", "temperature"))
+# ## Thermal status
+# print(getPoint("thermalStatus", "temperature"))
 
-## CPU/GPU usage
-print(getPoint("cpuUsage", "cpu"))
-print(getPoint("gpuUsage", "gpu"))
+# ## CPU/GPU usage
+# print(getPoint("cpuUsage", "cpu"))
+# print(getPoint("gpuUsage", "gpu"))
 
-## Memory usage
-print(getPoint("memoryUsage", "memory"))
+# ## Memory usage
+# print(getPoint("memoryUsage", "memory"))
 
-## Network status - report status of comm. link
-print(getPoint("networkStatus", "status"))
+# ## Network status - report status of comm. link
+# print(getPoint("networkStatus", "status"))
 
-## Error log/alerts
-print(getPoint("errorLog", "error"))
+# ## Error log/alerts
+# print(getPoint("errorLog", "error"))
 
-## Task queue/workflow status
-print(getPoint("taskQueue", "task_name"))
-print(getPoint("taskQueue", "some_other_task_name"))
+# ## Task queue/workflow status
+# print(getPoint("taskQueue", "task_name"))
+# print(getPoint("taskQueue", "some_other_task_name"))
+
+with open('analyticsDashboard/testData.json', 'r') as file:
+    # Load the JSON data into a Python dictionary
+    data = json.load(file)
+
+# Now you can work with the 'data' dictionary
+powerDraw = data.get('powerDraw')
+databaseInput = data.get('databaseInput')
+databaseOutput = data.get('databaseOutput')
+thermalTemp = data.get('thermalTemp')
+
+if powerDraw:
+    addNewPoint("powerDraw", "value", powerDraw)
+
+if databaseInput:
+    addNewPoint("databaseCapacity", "inputBuffer", databaseInput)
+
+if databaseOutput:
+    addNewPoint("databaseCapacity", "outputBuffer", databaseOutput)
+
+if thermalTemp:
+    addNewPoint("thermalStatus", "temperature", thermalTemp)
