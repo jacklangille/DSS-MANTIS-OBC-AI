@@ -20,10 +20,10 @@ class AnalyticsService:
         except Exception as e:
             print(f"Error while recording point: {e}")
 
-    def getPoint(self, systemName: str, keyName: str):
+    def getPoint(self, systemName: str, keyName: str, timeRange: str = "-10m"):
         try:
             query = f'from(bucket:"testing")\
-        |> range(start: -10m)\
+        |> range(start: {timeRange})\
         |> filter(fn:(r) => r._measurement == "{systemName}")\
         |> filter(fn:(r) => r._field == "{keyName}")'
 
