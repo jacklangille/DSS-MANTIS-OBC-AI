@@ -12,8 +12,8 @@ Info here...
 | ------------------ | ------------------------------------------------------------------ | ------- |
 | Logs               | {{timeStamp: number, logId: number}}                               |         |
 | SDCardFillPercent  | {{timeStamp: number, percent: number}}                             |         |
-| SBandTransmissions | {{timeStamp: number, statusId: number}}                            |         |
-| Power              | {{timeStamp: number, systemName: string, powerUse: number}}        | Watts   |
+| SBandTransmissions | {{timeStamp: number, statusId: number, gps-coordinates: string}}   |         |
+| Power              | {{timeStamp: number, systemName: string, powerUse: number}}        | Volts   |
 | Temperature        | {{timeStamp: number, systemName: string, powerUseInWatts: number}} | Celsius |
 
 ### Important Notes
@@ -26,56 +26,76 @@ Info here...
 {
 	"Logs": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711289050,
 			"logId": 1
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
 			"logId": 2
 		}
 	],
 	"SDCardFillPercent": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711289050,
 			"percent": 50
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
 			"percent": 51
 		}
 	],
 	"SBandTransmissions": [
 		{
-			"timeStamp": 1234567890,
-			"success": true,
+			"timeStamp": 1711289050,
+			"gps-coordinates": "41°24'12.2\"N 2°10'26.5\"E",
 			"statusId": 1
 		},
 		{
-			"timeStamp": 1234567891,
-			"success": false,
+			"timeStamp": 1711289049,
+			"gps-coordinates": "41°24'12.2\"N 2°10'26.5\"E",
 			"statusId": 2
 		}
 	],
 	"Power": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711287050,
 			"systemName": "System1",
-			"powerUse": 100
+			"powerUse": 50
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
+			"systemName": "System1",
+			"powerUse": 60
+		},
+		{
+			"timeStamp": 1711285050,
 			"systemName": "System2",
-			"powerUse": 200
+			"powerUse": 50
+		},
+		{
+			"timeStamp": 1711288049,
+			"systemName": "System2",
+			"powerUse": 60
 		}
 	],
 	"Temperature": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711287050,
 			"systemName": "System1",
 			"temperature": 50
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
+			"systemName": "System1",
+			"temperature": 60
+		},
+		{
+			"timeStamp": 1711285050,
+			"systemName": "System2",
+			"temperature": 50
+		},
+		{
+			"timeStamp": 1711288049,
 			"systemName": "System2",
 			"temperature": 60
 		}

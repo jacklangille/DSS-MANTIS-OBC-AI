@@ -79,9 +79,13 @@ class AnalyticsService:
                 for transmission in sBandTransmissions:
                     timeStamp = transmission.get("timeStamp")
                     statusId = transmission.get("statusId")
+                    gpsLocation = transmission.get("gps-coordinates")
+
+                    valueDict = {"statusId": statusId, "gpsLocation": gpsLocation}
+                    valueToLog = json.dumps(valueDict)
 
                     self.recordPoint(
-                        "sBandTransmissions", "status", statusId, timeStamp
+                        "sBandTransmissions", "statusWithGpsJson", valueToLog, timeStamp
                     )
 
             if power:

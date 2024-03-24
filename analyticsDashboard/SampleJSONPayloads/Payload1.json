@@ -22,10 +22,12 @@
 	"SBandTransmissions": [
 		{
 			"timeStamp": 1711289050,
+			"gps-coordinates": "41°24'12.2\"N 2°10'26.5\"E",
 			"statusId": 1
 		},
 		{
 			"timeStamp": 1711289049,
+			"gps-coordinates": "41°24'12.2\"N 2°10'26.5\"E",
 			"statusId": 2
 		}
 	],
