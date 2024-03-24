@@ -12,7 +12,7 @@ Info here...
 | ------------------ | ------------------------------------------------------------------ | ------- |
 | Logs               | {{timeStamp: number, logId: number}}                               |         |
 | SDCardFillPercent  | {{timeStamp: number, percent: number}}                             |         |
-| SBandTransmissions | {{timeStamp: number, success: boolean, statusId: number}}          |         |
+| SBandTransmissions | {{timeStamp: number, statusId: number}}                            |         |
 | Power              | {{timeStamp: number, systemName: string, powerUse: number}}        | Watts   |
 | Temperature        | {{timeStamp: number, systemName: string, powerUseInWatts: number}} | Celsius |
 

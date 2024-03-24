@@ -1,56 +1,74 @@
 {
 	"Logs": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711289050,
 			"logId": 1
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
 			"logId": 2
 		}
 	],
 	"SDCardFillPercent": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711289050,
 			"percent": 50
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
 			"percent": 51
 		}
 	],
 	"SBandTransmissions": [
 		{
-			"timeStamp": 1234567890,
-			"success": true,
+			"timeStamp": 1711289050,
 			"statusId": 1
 		},
 		{
-			"timeStamp": 1234567891,
-			"success": false,
+			"timeStamp": 1711289049,
 			"statusId": 2
 		}
 	],
 	"Power": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711287050,
 			"systemName": "System1",
-			"powerUse": 100
+			"powerUse": 50
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
+			"systemName": "System1",
+			"powerUse": 60
+		},
+		{
+			"timeStamp": 1711285050,
 			"systemName": "System2",
-			"powerUse": 200
+			"powerUse": 50
+		},
+		{
+			"timeStamp": 1711288049,
+			"systemName": "System2",
+			"powerUse": 60
 		}
 	],
 	"Temperature": [
 		{
-			"timeStamp": 1234567890,
+			"timeStamp": 1711287050,
 			"systemName": "System1",
 			"temperature": 50
 		},
 		{
-			"timeStamp": 1234567891,
+			"timeStamp": 1711289049,
+			"systemName": "System1",
+			"temperature": 60
+		},
+		{
+			"timeStamp": 1711285050,
+			"systemName": "System2",
+			"temperature": 50
+		},
+		{
+			"timeStamp": 1711288049,
 			"systemName": "System2",
 			"temperature": 60
 		}
