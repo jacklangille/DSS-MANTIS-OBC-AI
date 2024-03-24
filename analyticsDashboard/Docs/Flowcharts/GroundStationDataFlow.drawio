@@ -1,0 +1,70 @@
+<mxfile host="Electron" modified="2024-03-24T12:24:27.768Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="SHhH1_fgQeRhKkJm4xTM" version="24.1.0" type="device">
+  <diagram name="Page-1" id="u1J44p7dfjy_udOnklSz">
+    <mxGraphModel dx="1434" dy="1396" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IuqejPlVKC5t36psSgME-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;noEdgeStyle=1;orthogonal=1;" edge="1" parent="1" source="IuqejPlVKC5t36psSgME-1" target="IuqejPlVKC5t36psSgME-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="413" y="132" />
+              <mxPoint x="413" y="208" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-4" value="Data sent to ground" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="IuqejPlVKC5t36psSgME-3">
+          <mxGeometry x="0.1167" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-1" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite;" vertex="1" parent="1">
+          <mxGeometry x="393" y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;noEdgeStyle=1;orthogonal=1;" edge="1" parent="1" source="IuqejPlVKC5t36psSgME-2" target="IuqejPlVKC5t36psSgME-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="413" y="275.33" />
+              <mxPoint x="413" y="351.33" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-2" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.satellite_dish;" vertex="1" parent="1">
+          <mxGeometry x="393.5" y="220" width="39" height="43.33" as="geometry" />
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;noEdgeStyle=1;orthogonal=1;" edge="1" parent="1" source="IuqejPlVKC5t36psSgME-6" target="IuqejPlVKC5t36psSgME-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="413" y="435.33" />
+              <mxPoint x="413" y="511.33" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-15" value="Upload data to remote database" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="IuqejPlVKC5t36psSgME-14">
+          <mxGeometry x="-0.1651" y="3" relative="1" as="geometry">
+            <mxPoint x="13" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-6" value="JSON data passed to AnalyticsService" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="335.5" y="363.33" width="155" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-8" value="Data Analytics" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="338" y="10" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;noEdgeStyle=1;orthogonal=1;" edge="1" parent="1" source="IuqejPlVKC5t36psSgME-13" target="IuqejPlVKC5t36psSgME-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="413" y="595.3299999999999" />
+              <mxPoint x="413" y="671.3299999999999" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-13" value="" style="shape=datastore;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="383" y="523.3299999999999" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IuqejPlVKC5t36psSgME-16" value="Graphana dashboard updates based on database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="683.3299999999999" width="196" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

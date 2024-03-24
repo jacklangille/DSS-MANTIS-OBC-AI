@@ -106,24 +106,29 @@ def getPoint(systemName: str, keyName: str):
 # print(getPoint("taskQueue", "task_name"))
 # print(getPoint("taskQueue", "some_other_task_name"))
 
-with open('analyticsDashboard/testData.json', 'r') as file:
-    # Load the JSON data into a Python dictionary
-    data = json.load(file)
+# with open('analyticsDashboard/testData.json', 'r') as file:
+#     # Load the JSON data into a Python dictionary
+#     data = json.load(file)
 
-# Now you can work with the 'data' dictionary
-powerDraw = data.get('powerDraw')
-databaseInput = data.get('databaseInput')
-databaseOutput = data.get('databaseOutput')
-thermalTemp = data.get('thermalTemp')
+# # Now you can work with the 'data' dictionary
+# powerDraw = data.get('powerDraw')
+# databaseInput = data.get('databaseInput')
+# databaseOutput = data.get('databaseOutput')
+# thermalTemp = data.get('thermalTemp')
 
-if powerDraw:
-    addNewPoint("powerDraw", "value", powerDraw)
+# if powerDraw:
+#     addNewPoint("powerDraw", "value", powerDraw)
 
-if databaseInput:
-    addNewPoint("databaseCapacity", "inputBuffer", databaseInput)
+# if databaseInput:
+#     addNewPoint("databaseCapacity", "inputBuffer", databaseInput)
 
-if databaseOutput:
-    addNewPoint("databaseCapacity", "outputBuffer", databaseOutput)
+# if databaseOutput:
+#     addNewPoint("databaseCapacity", "outputBuffer", databaseOutput)
 
-if thermalTemp:
-    addNewPoint("thermalStatus", "temperature", thermalTemp)
+# if thermalTemp:
+#     addNewPoint("thermalStatus", "temperature", thermalTemp)
+
+
+addNewPoint("errorLog", "error", "SOME_ERROR1")
+
+addNewPoint("errorLog", "error2", "SOME_ERROR2")

@@ -1,0 +1,58 @@
+{
+	"Logs": [
+		{
+			"timeStamp": 1234567890,
+			"logId": 1
+		},
+		{
+			"timeStamp": 1234567891,
+			"logId": 2
+		}
+	],
+	"SDCardFillPercent": [
+		{
+			"timeStamp": 1234567890,
+			"percent": 50
+		},
+		{
+			"timeStamp": 1234567891,
+			"percent": 51
+		}
+	],
+	"SBandTransmissions": [
+		{
+			"timeStamp": 1234567890,
+			"success": true,
+			"statusId": 1
+		},
+		{
+			"timeStamp": 1234567891,
+			"success": false,
+			"statusId": 2
+		}
+	],
+	"Power": [
+		{
+			"timeStamp": 1234567890,
+			"systemName": "System1",
+			"powerUse": 100
+		},
+		{
+			"timeStamp": 1234567891,
+			"systemName": "System2",
+			"powerUse": 200
+		}
+	],
+	"Temperature": [
+		{
+			"timeStamp": 1234567890,
+			"systemName": "System1",
+			"temperature": 50
+		},
+		{
+			"timeStamp": 1234567891,
+			"systemName": "System2",
+			"temperature": 60
+		}
+	]
+}
