@@ -1,44 +1,41 @@
-import evalscripts as eva
+import pandas as pd
 import matplotlib.image as img
-from sentinelhub import SentinelHubRequest, SHConfig, DataCollection, MimeType, CRS, BBox, bbox_to_dimensions
+from sentinelhub import SentinelHubRequest, SHConfig, DataCollection, MimeType, CRS, BBox, bbox_to_dimensions, Geometry
+import evalscripts as eva
 
-config = SHConfig() # API keys are set as environment variables in ~/.zshrc
-
-# coords = [min_lon, min_lat, max_lon, max_lat]
-# coords define SW corner and NE corner of bounding box
-
-nw = (-68.58604112771494, 43.425172798679824) 
-ne = (-64.74841888575303, 43.425172798679824)
-sw = (-68.58604112771494, 38.63052616537985)
-se = (-64.74841888575303,38.63052616537985)
-
-COORDS = [sw[0], sw[1], ne[0], ne[1]]
-DATE = "2021-06-17"
-RES = 30 # Resolution in meters
+CONFIG = SHConfig() 
 OUTPUT_DIR = "../dataset_gen/results/"
+RES = 20 # Resolution in meters
+TIME_INTERVAL = ("2023-10-30", "2023-11-6")
 
-def main():
-    bbox = BBox(bbox=COORDS, crs=CRS.WGS84)
-    evalscript = eva.rgbnir
-    request = SentinelHubRequest(
-        data_folder=OUTPUT_DIR,
-        evalscript=evalscript,
-        input_data=[
-            SentinelHubRequest.input_data(
-                data_collection=DataCollection.SENTINEL2_L1C,
-                time_interval=(DATE)
-            )
-        ],
-        responses=[
-            SentinelHubRequest.output_response("default",MimeType.JPG)
-        ],
-        bbox=bbox,
-        size=bbox_to_dimensions(bbox, resolution=RES),
-        config=config
-    )
+# Original coordinates
+coordinates =[4.1, 62.04, 4.887440854041823, 62.39932626325639]
+# Create a bbox from the original coordinates
+bbox = BBox(bbox=coordinates, crs=CRS.WGS84)
 
-    image_response = request.get_data()
-    img_name = f"{DATE}_test.jpg"
-    img.imsave(OUTPUT_DIR+img_name, image_response[0])
-if __name__ == "__main__":
-    main()
+# Calculate dimensions to see if it exceeds the 2500 pixel limit
+dimensions = bbox_to_dimensions(bbox, resolution=RES)
+
+print(f"Original dimensions: {dimensions}")
+
+# Adjusted request with new_bbox
+request = SentinelHubRequest(
+    evalscript=eva.algae,  
+    input_data=[
+        SentinelHubRequest.input_data(
+            data_collection=DataCollection.SENTINEL2_L1C,
+            time_interval=TIME_INTERVAL,
+        )
+    ],
+    responses=[
+        SentinelHubRequest.output_response('default', MimeType.JPG)
+    ],
+    bbox=bbox,  # Use the adjusted BBox object
+    size=dimensions,  # Use the new dimensions
+    config=CONFIG
+)
+
+img_response = request.get_data()
+for idx, img_data in enumerate(img_response):
+    img_name = f"{TIME_INTERVAL[0]}_to_{TIME_INTERVAL[1]}_{idx}.jpg"
+    img.imsave(OUTPUT_DIR + img_name, img_data)
